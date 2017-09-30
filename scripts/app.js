@@ -1,11 +1,11 @@
 'use strict';
 
-var allStudents = new XMLHTTPREQUEST();
-allStudents.open('GET', file, false);
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open( 'GET', './students.txt', false );
 
-console.log('allStudents :', allStudents);
-console.log('allStudents property: ' + allStudents.abort);
-console.log(allStudents.length);
+console.log( 'xmlhttp :', xmlhttp );
+console.log( 'xmlhttp property: ' + xmlhttp.abort );
+console.log( xmlhttp.length );
 
-var main = document.getElementById('main');
-console.log(main);
+var main = document.getElementById( 'main' );
+console.log( main );
