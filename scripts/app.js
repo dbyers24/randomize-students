@@ -1,11 +1,14 @@
 'use strict';
 
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.open( 'GET', './students.txt', false );
+// console.log( 'xmlhttp :', xmlhttp );
+// console.log( 'xmlhttp property: ' + xmlhttp.abort );
+// console.log( xmlhttp.length );
 
-console.log( 'xmlhttp :', xmlhttp );
-console.log( 'xmlhttp property: ' + xmlhttp.abort );
-console.log( xmlhttp.length );
+// var main = document.getElementById( 'main' );
+// var form = document.createElement('form');
+// var input = document.createElement('input')
+// main.appendChild(form)
+// form.appendChild(input);
 
-var main = document.getElementById( 'main' );
+
 console.log( main );
