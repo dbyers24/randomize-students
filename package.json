@@ -1,6 +1,16 @@
 {
+  "name": "randomize-students",
+  "version": "1.0.0",
+  "main": "bundle.js",
+  "repository": "https://github.com/dbyers24/randomize-students.git",
+  "author": "Dustin Byers <dbyers84@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "browserify": "^14.5.0",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "watchify": "^3.9.0"
+  },
+  "scripts": {
+    "watch": "watchify app.js -o node bundle.js"
   }
 }

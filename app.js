@@ -1,15 +1,7 @@
-'use strict';
+'use strict'
 
 var fs = require('fs')
-
-{/* <button class='add-student-button' type='submit'>  +  </button?
-          <label># of groups
-          <input id='number-groups-input' type='number' />
-          </label>
-          <label>Group Size: 
-          <input id='size-groups-input' type='number' />
-          </label>
-      <button class='submit-button' type='submit'> SUBMIT </button> */}
+var _ = require('lodash')
 
 let addStudentButton = document.getElementById('add-student-button')
 let submitButton = document.getElementById('submit-button')
@@ -18,20 +10,27 @@ let addStudentInput = document.getElementById('add-student-input')
 let sizeGroupsInput = document.getElementById('size-groups-input')
 let output = document.getElementById('output-box')
 
-let handleAddStudent = (e) => {
+console.log(fs)
+
+let handleAddStudent = e => {
   console.log('HIT handleAddStudent: ', addStudentInput.value)
 
   fs.write('students.txt', addStudentInput.value, () => {
     console.log('damn son, that shit worked.')
   })
-
   output.value += addStudentInput.value
-  addStudentInput.value = null;
+  addStudentInput.value = null
 }
 
-let handleSubmit = (e) => {
-  event.preventDefault();
-  console.log('HIT handleSubmit: ', '# grps: ', numberGroupsInput.value, 'grp size: ', sizeGroupsInput.value,  )  
+let handleSubmit = e => {
+  event.preventDefault()
+  console.log(
+    'HIT handleSubmit: ',
+    '# grps: ',
+    numberGroupsInput.value,
+    'grp size: ',
+    sizeGroupsInput.value
+  )
 }
 addStudentButton.addEventListener('click', handleAddStudent)
 submitButton.addEventListener('click', handleSubmit)
