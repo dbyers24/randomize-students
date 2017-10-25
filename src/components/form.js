@@ -1,32 +1,47 @@
 import React from 'react'
-
+  
 class Form extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      output: 'student output will appear here',
+      output: [],
       studentInput : '',
     }
   }
+
+  componentWillMount() {
+    console.log('******* ', localStorage)
+    if (localStorage.people) {
+      this.setState({output: [this.output, JSON.parse(localStorage.people)],
+      })
+    }
+  }
+
+  componentDidMount() {
+    console.log('component mounted')
   
+  }  
+
   handleSubmit(e) {
     console.log('Hit HandleSubmit, ', )  
   }
 
   handleAddStudent(e) {
-    console.log('Hit handleAddStudent ', e)
-    e.preventDefault()
-    this.setState({
-      output: this.state.studentInput,
-      studentInput: '',
-    })
+    if (this.state.studentInput === null) 
+      return null
+    let output = this.state.output
+    console.log('*STATE* ', output) 
+    this.setState({output: [output, this.state.studentInput]})
 
+    localStorage.setItem('people', JSON.stringify(output))
+
+    console.log('localStorage ', localStorage)
+    this.setState({studentInput: ''})  
   }
 
   handleInputChange(studentInput) {
     this.setState({studentInput})
-    console.log(this.state.studentInput)
   }
 
   render() {
@@ -41,9 +56,7 @@ class Form extends React.Component {
           />
         </label>
         <button id="add-student-button" 
-          onClick={e => this.handleAddStudent(e)} >
-          {' '}
-          +{' '}
+          onClick={e => this.handleAddStudent(e)} > + 
         </button>
 
         <form>
